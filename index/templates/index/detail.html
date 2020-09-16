@@ -1,0 +1,24 @@
+{{question.question_text}}
+
+<p>Choices</p>
+
+<ul>
+	{% for choice in question.choice_set.all %}
+		<li>{{choice.choice_text}} ==> {{choice.votes}} </li>
+	{% empty %}
+	<li>No choice exists</li>
+	{% endfor %}
+</ul>
+<table border="2px solid" style="padding:10px;">
+	<tr>
+		<th>Choices</th>
+	</tr>
+	{% for choice in question.choice_set.all %}	
+	<tr>
+		<td>{{choice.choice_text}}</td><td>{{choice.votes}}</td>
+	</tr>
+	{% empty %}
+	<tr><td>No choice exists</td></tr>
+	{% endfor %}
+
+</table>
